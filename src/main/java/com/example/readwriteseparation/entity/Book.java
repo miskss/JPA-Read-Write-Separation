@@ -1,0 +1,30 @@
+package com.example.readwriteseparation.entity;
+
+import lombok.Data;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+/**
+ * @author peter
+ * date 2020/11/18 15:50
+ */
+@Entity
+@Data
+public class Book {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+
+    public Book() {
+    }
+
+    public Book(String name) {
+        this.name = name;
+    }
+}

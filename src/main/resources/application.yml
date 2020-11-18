@@ -1,0 +1,33 @@
+spring:
+  primary:
+    datasource:
+      jdbc-url: jdbc:mysql://192.168.3.14:3306/primary?serverTimezone=GMT%2B8&zeroDateTimeBehavior=convertToNull
+      username: root
+      password: 123456
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      pool-name: PrimaryHikariPool
+      connection-timeout: 30000
+      maximum-pool-size: 10
+      auto-commit: true
+      minimum-idle: 1
+      max-lifetime: 30000
+      idle-timeout: 10000
+  replicate:
+    datasource:
+      jdbc-url: jdbc:mysql://192.168.3.14:3306/replicate?serverTimezone=GMT%2B8&zeroDateTimeBehavior=convertToNull
+      username: root
+      password: 123456
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      pool-name: ReplicateHikariPool
+      connection-timeout: 30000
+      maximum-pool-size: 10
+      auto-commit: true
+      minimum-idle: 2
+      max-lifetime: 30000
+      idle-timeout: 10000
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    open-in-view: false
+    database-platform: org.hibernate.dialect.MySQL8Dialect
